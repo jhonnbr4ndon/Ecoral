@@ -5,6 +5,8 @@ import com.ecoral.fiap.entities.dto.UsuarioDTO;
 import com.ecoral.fiap.services.Exceptions.ResourceNotFoundException;
 import com.ecoral.fiap.services.UsuarioService;
 import com.ecoral.fiap.services.mapper.UsuarioMapper;
+import com.ecoral.fiap.strategies.usuario.NomeUsuarioStrategy;
+import com.ecoral.fiap.strategies.usuario.UsuarioStrategy;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -69,4 +71,12 @@ public class UsuarioController {
                     .body("Usuário não encontrado com o ID: " + id);
         }
     }
+
+//    @GetMapping("/nome-ordenado")
+//    public ResponseEntity<List<UsuarioDTO>> listaUsuarioPorNome() {
+//        UsuarioStrategy strategy = new NomeUsuarioStrategy();
+//        List<UsuarioDTO> listarNomes = usuarioService.listaOrganizadaUsuario(strategy).stream().map(UsuarioMapper::toEntity).toList();
+//        return ResponseEntity.ok(listarNomes);
+//    }
+
 }

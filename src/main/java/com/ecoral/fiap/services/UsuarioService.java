@@ -5,6 +5,7 @@ import com.ecoral.fiap.entities.dto.UsuarioDTO;
 import com.ecoral.fiap.repositories.UsuarioRepository;
 import com.ecoral.fiap.services.Exceptions.ResourceNotFoundException;
 import com.ecoral.fiap.services.mapper.UsuarioMapper;
+import com.ecoral.fiap.strategies.usuario.UsuarioStrategy;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,19 @@ public class UsuarioService {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
+
+    @Autowired
+    private UsuarioStrategy usuarioStrategy;
+
+    @Autowired
+    public void setUsuarioStrategy(UsuarioStrategy usuarioStrategy) {
+        this.usuarioStrategy = usuarioStrategy;
+    }
+
+    public List<Usuario> listaOrganizadaUsuario(UsuarioStrategy strategy) {
+        List<Usuario> usuarios = usuarioRepository.findAll();
+        return strategy.organizar(usuarios);
+    }
 
     @Transactional
     public UsuarioDTO criarUsuario(Usuario usuario) {
