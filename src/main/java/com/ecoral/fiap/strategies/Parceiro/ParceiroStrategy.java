@@ -1,4 +1,4 @@
-package com.ecoral.fiap.strategies.Parceiro;
+package com.ecoral.fiap.strategies.parceiro;
 
 import com.ecoral.fiap.entities.Parceiro;
 

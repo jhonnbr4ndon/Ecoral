@@ -5,7 +5,7 @@ import com.ecoral.fiap.entities.dto.ParceiroDTO;
 import com.ecoral.fiap.repositories.ParceirosRepository;
 import com.ecoral.fiap.services.Exceptions.ResourceNotFoundException;
 import com.ecoral.fiap.services.mapper.ParceiroMapper;
-import com.ecoral.fiap.strategies.Parceiro.ParceiroStrategy;
+import com.ecoral.fiap.strategies.parceiro.ParceiroStrategy;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
