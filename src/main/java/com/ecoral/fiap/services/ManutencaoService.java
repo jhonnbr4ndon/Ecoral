@@ -5,6 +5,7 @@ import com.ecoral.fiap.entities.dto.ManutencaoDTO;
 import com.ecoral.fiap.repositories.ManutencaoRepository;
 import com.ecoral.fiap.services.Exceptions.ResourceNotFoundException;
 import com.ecoral.fiap.services.mapper.ManutencaoMapper;
+import com.ecoral.fiap.strategies.manutencao.ManutencaoStrategy;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,19 @@ public class ManutencaoService {
 
     @Autowired
     private ManutencaoRepository manutencaoRepository;
+
+    @Autowired
+    private ManutencaoStrategy manutencaoStrategy;
+
+    @Autowired
+    private void setManutencaoStrategy(ManutencaoStrategy manutencaoStrategy) {
+        this.manutencaoStrategy = manutencaoStrategy;
+    }
+
+    public List<Manutencao> listaOrganizadaManutencao(ManutencaoStrategy manutencaoStrategy) {
+        List<Manutencao> manutencaos = manutencaoRepository.findAll();
+        return manutencaoStrategy.organizar(manutencaos);
+    }
 
     @Transactional
     public ManutencaoDTO criarManutencao(Manutencao manutencao) {

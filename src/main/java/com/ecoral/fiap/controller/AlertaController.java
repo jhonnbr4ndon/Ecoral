@@ -5,11 +5,19 @@ import com.ecoral.fiap.entities.dto.AlertaDTO;
 import com.ecoral.fiap.services.AlertaService;
 import com.ecoral.fiap.services.Exceptions.ResourceNotFoundException;
 import com.ecoral.fiap.services.mapper.AlertaMapper;
+import com.ecoral.fiap.strategies.alerta.AlertaStrategy;
+import com.ecoral.fiap.strategies.alerta.DataAntiga5Strategy;
+import com.ecoral.fiap.strategies.alerta.DataRecente5Strategy;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -20,10 +28,20 @@ public class AlertaController {
     @Autowired
     private AlertaService alertaService;
 
-    @GetMapping()
+    @GetMapping("/todos")
     public ResponseEntity<List<AlertaDTO>> listaAlerta() {
         List<AlertaDTO> alertaDTOS = alertaService.listaAlerta();
         return ResponseEntity.ok(alertaDTOS);
+    }
+
+    @GetMapping()
+    public ResponseEntity<Page<AlertaDTO>> listaAlertaPaginacao(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size
+    ) {
+        Pageable pageable = PageRequest.of(page, size);
+        Page<AlertaDTO> alertaPage = alertaService.listaPaginacaoAlerta(pageable);
+        return ResponseEntity.ok(alertaPage);
     }
 
     @PostMapping()
@@ -68,4 +86,19 @@ public class AlertaController {
                     .body("Alerta não encontrado com o ID: " + id);
         }
     }
+
+    @GetMapping("/data-recente")
+    public ResponseEntity<List<AlertaDTO>> listaAlertaPorDataRecente() {
+        AlertaStrategy strategy = new DataRecente5Strategy();
+        List<AlertaDTO> listaData = alertaService.listaOrganizadaAlerta(strategy).stream().map(AlertaMapper::toDTO).toList();
+        return ResponseEntity.ok(listaData);
+    }
+
+    @GetMapping("/data-antiga")
+    public ResponseEntity<List<AlertaDTO>> listaAlertaPorDataAntiga() {
+        AlertaStrategy strategy = new DataAntiga5Strategy();
+        List<AlertaDTO> listaData = alertaService.listaOrganizadaAlerta(strategy).stream().map(AlertaMapper::toDTO).toList();
+        return ResponseEntity.ok(listaData);
+    }
+
 }

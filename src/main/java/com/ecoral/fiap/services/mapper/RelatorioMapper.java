@@ -9,7 +9,7 @@ public class RelatorioMapper {
         Relatorio relatorio = new Relatorio();
         relatorio.setDescricao(relatorioDTO.getDescricao());
         relatorio.setData(relatorioDTO.getData());
-        relatorio.setReponsavel(relatorioDTO.getReponsavel());
+        relatorio.setReponsavel(relatorioDTO.getResponsavel());
         relatorio.setImagem(relatorioDTO.getImagem());
         return relatorio;
     }
@@ -18,7 +18,7 @@ public class RelatorioMapper {
         RelatorioDTO relatorioDTO = new RelatorioDTO();
         relatorioDTO.setDescricao(relatorio.getDescricao());
         relatorioDTO.setData(relatorio.getData());
-        relatorioDTO.setReponsavel(relatorio.getReponsavel());
+        relatorioDTO.setResponsavel(relatorio.getResponsavel());
         relatorioDTO.setImagem(relatorio.getImagem());
         return relatorioDTO;
     }

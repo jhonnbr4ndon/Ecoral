@@ -5,6 +5,8 @@ import com.ecoral.fiap.entities.dto.LocalDTO;
 import com.ecoral.fiap.services.Exceptions.ResourceNotFoundException;
 import com.ecoral.fiap.services.LocalService;
 import com.ecoral.fiap.services.mapper.LocalMapper;
+import com.ecoral.fiap.strategies.local.LocalStrategy;
+import com.ecoral.fiap.strategies.local.NomeLocalStrategy;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -67,5 +69,12 @@ public class LocalController {
                     .status(HttpStatus.NOT_FOUND)
                     .body("Local não encontrado com o ID: " + id);
         }
+    }
+
+    @GetMapping("/nome-ordenado")
+    public ResponseEntity<List<LocalDTO>> listaLocalPorNome() {
+        LocalStrategy strategy = new NomeLocalStrategy();
+        List<LocalDTO> listaNome = localService.listaOrganizadaLocal(strategy).stream().map(LocalMapper::toDTO).toList();
+        return ResponseEntity.ok(listaNome);
     }
 }

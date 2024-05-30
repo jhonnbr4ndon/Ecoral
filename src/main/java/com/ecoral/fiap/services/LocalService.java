@@ -5,6 +5,7 @@ import com.ecoral.fiap.entities.dto.LocalDTO;
 import com.ecoral.fiap.repositories.LocalRepository;
 import com.ecoral.fiap.services.Exceptions.ResourceNotFoundException;
 import com.ecoral.fiap.services.mapper.LocalMapper;
+import com.ecoral.fiap.strategies.local.LocalStrategy;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,19 @@ public class LocalService {
 
     @Autowired
     private LocalRepository localRepository;
+
+    @Autowired
+    private LocalStrategy localStrategy;
+
+    @Autowired
+    private void setLocalStrategy(LocalStrategy localStrategy) {
+        this.localStrategy = localStrategy;
+    }
+
+    public List<Local> listaOrganizadaLocal(LocalStrategy strategy) {
+        List<Local> locals = localRepository.findAll();
+        return strategy.organizar(locals);
+    }
 
     @Transactional
     public LocalDTO criarLocal(Local local) {

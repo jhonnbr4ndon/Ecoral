@@ -18,7 +18,7 @@ public class Relatorio {
     @Column(name = "dt_relatorio")
     private Date data;
     @Column(name = "respon_relatorio")
-    private String reponsavel;
+    private String responsavel;
     @Column(name = "img_relatorio")
     private String imagem;
 
@@ -57,12 +57,12 @@ public class Relatorio {
         this.data = data;
     }
 
-    public String getReponsavel() {
-        return reponsavel;
+    public String getResponsavel() {
+        return responsavel;
     }
 
     public void setReponsavel(String reponsavel) {
-        this.reponsavel = reponsavel;
+        this.responsavel = reponsavel;
     }
 
     public String getImagem() {

@@ -5,9 +5,12 @@ import com.ecoral.fiap.entities.dto.EquipamentoDTO;
 import com.ecoral.fiap.repositories.EquipamentoRepository;
 import com.ecoral.fiap.services.Exceptions.ResourceNotFoundException;
 import com.ecoral.fiap.services.mapper.EquipamentoMapper;
+import com.ecoral.fiap.strategies.equipamento.EquipamentoStrategy;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,6 +21,19 @@ public class EquipamentoService {
 
     @Autowired
     private EquipamentoRepository equipamentoRepository;
+
+    @Autowired
+    private EquipamentoStrategy equipamentoStrategy;
+
+    @Autowired
+    private void setEquipamentoStrategy(EquipamentoStrategy equipamentoStrategy) {
+        this.equipamentoStrategy = equipamentoStrategy;
+    }
+
+    public List<Equipamento> listaOrganizadaEquipamento(EquipamentoStrategy equipamentoStrategy) {
+        List<Equipamento> equipamentos = equipamentoRepository.findAll();
+        return equipamentoStrategy.organizar(equipamentos);
+    }
 
     @Transactional
     public EquipamentoDTO criarEquipamento(Equipamento equipamento) {
@@ -30,6 +46,10 @@ public class EquipamentoService {
         return equipamentos.stream()
                 .map(EquipamentoMapper::toDTO)
                 .collect(Collectors.toList());
+    }
+
+    public Page<EquipamentoDTO> listaPaginacaoEquipamento(Pageable pageable) {
+        return equipamentoRepository.findAll(pageable).map(EquipamentoMapper::toDTO);
     }
 
     public EquipamentoDTO encontrarEquipamentoPorId(Long id) {

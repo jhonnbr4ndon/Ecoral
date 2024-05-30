@@ -5,9 +5,12 @@ import com.ecoral.fiap.entities.dto.AlertaDTO;
 import com.ecoral.fiap.repositories.AlertaRepository;
 import com.ecoral.fiap.services.Exceptions.ResourceNotFoundException;
 import com.ecoral.fiap.services.mapper.AlertaMapper;
+import com.ecoral.fiap.strategies.alerta.AlertaStrategy;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,6 +21,19 @@ public class AlertaService {
 
     @Autowired
     private AlertaRepository alertaRepository;
+
+    @Autowired
+    private AlertaStrategy alertaStrategy;
+
+    @Autowired
+    private void setAlertaStrategy(AlertaStrategy alertaStrategy) {
+        this.alertaStrategy = alertaStrategy;
+    }
+
+    public List<Alerta> listaOrganizadaAlerta(AlertaStrategy alertaStrategy) {
+        List<Alerta> alertas = alertaRepository.findAll();
+        return alertaStrategy.organizar(alertas);
+    }
 
     @Transactional
     public AlertaDTO criarAlerta(Alerta alerta) {
@@ -30,6 +46,10 @@ public class AlertaService {
         return alertas.stream()
                 .map(AlertaMapper::toDTO)
                 .collect(Collectors.toList());
+    }
+
+    public Page<AlertaDTO> listaPaginacaoAlerta(Pageable pageable) {
+        return alertaRepository.findAll(pageable).map(AlertaMapper::toDTO);
     }
 
     public AlertaDTO encontrarAlertaPorId(Long id) {

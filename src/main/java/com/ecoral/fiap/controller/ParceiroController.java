@@ -5,6 +5,8 @@ import com.ecoral.fiap.entities.dto.ParceiroDTO;
 import com.ecoral.fiap.services.Exceptions.ResourceNotFoundException;
 import com.ecoral.fiap.services.ParceiroService;
 import com.ecoral.fiap.services.mapper.ParceiroMapper;
+import com.ecoral.fiap.strategies.Parceiro.NomeParceiroStrategy;
+import com.ecoral.fiap.strategies.Parceiro.ParceiroStrategy;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -67,5 +69,12 @@ public class ParceiroController {
                     .status(HttpStatus.NOT_FOUND)
                     .body("Parceiro não encontrado com o ID: " + id);
         }
+    }
+
+    @GetMapping("/nome-ordenado")
+    public ResponseEntity<List<ParceiroDTO>> listaParceiroPorNome() {
+        ParceiroStrategy strategy = new NomeParceiroStrategy();
+        List<ParceiroDTO> listarNome = parceiroService.listaOrganizadaParceiro(strategy).stream().map(ParceiroMapper::toDTO).toList();
+        return ResponseEntity.ok(listarNome);
     }
 }

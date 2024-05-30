@@ -14,7 +14,7 @@ public class RelatorioDTO {
     @NotNull(message = "Data não pode estar em branco")
     private Date data;
     @NotBlank(message = "Responsável não pode estar em branco")
-    private String reponsavel;
+    private String responsavel;
     private String imagem;
 
     public String getDescricao() {
@@ -33,12 +33,12 @@ public class RelatorioDTO {
         this.data = data;
     }
 
-    public String getReponsavel() {
-        return reponsavel;
+    public String getResponsavel() {
+        return responsavel;
     }
 
-    public void setReponsavel(String reponsavel) {
-        this.reponsavel = reponsavel;
+    public void setResponsavel(String reponsavel) {
+        this.responsavel = reponsavel;
     }
 
     public String getImagem() {

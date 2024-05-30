@@ -5,6 +5,7 @@ import com.ecoral.fiap.entities.dto.ParceiroDTO;
 import com.ecoral.fiap.repositories.ParceirosRepository;
 import com.ecoral.fiap.services.Exceptions.ResourceNotFoundException;
 import com.ecoral.fiap.services.mapper.ParceiroMapper;
+import com.ecoral.fiap.strategies.Parceiro.ParceiroStrategy;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,19 @@ public class ParceiroService {
 
     @Autowired
     private ParceirosRepository parceirosRepository;
+
+    @Autowired
+    private ParceiroStrategy parceiroStrategy;
+
+    @Autowired
+    private void setParceiroStrategy(ParceiroStrategy parceiroStrategy){
+        this.parceiroStrategy = parceiroStrategy;
+    }
+
+    public List<Parceiro> listaOrganizadaParceiro(ParceiroStrategy parceiroStrategy) {
+        List<Parceiro> parceiros = parceirosRepository.findAll();
+        return parceiroStrategy.organizar(parceiros);
+    }
 
     @Transactional
     public ParceiroDTO criarParceiro(Parceiro parceiro) {

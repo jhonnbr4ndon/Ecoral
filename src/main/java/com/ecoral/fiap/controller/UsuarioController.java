@@ -72,11 +72,11 @@ public class UsuarioController {
         }
     }
 
-//    @GetMapping("/nome-ordenado")
-//    public ResponseEntity<List<UsuarioDTO>> listaUsuarioPorNome() {
-//        UsuarioStrategy strategy = new NomeUsuarioStrategy();
-//        List<UsuarioDTO> listarNomes = usuarioService.listaOrganizadaUsuario(strategy).stream().map(UsuarioMapper::toEntity).toList();
-//        return ResponseEntity.ok(listarNomes);
-//    }
+    @GetMapping("/nome-ordenado")
+    public ResponseEntity<List<UsuarioDTO>> listaUsuarioPorNome() {
+        UsuarioStrategy strategy = new NomeUsuarioStrategy();
+        List<UsuarioDTO> listarNomes = usuarioService.listaOrganizadaUsuario(strategy).stream().map(UsuarioMapper::toDTO).toList();
+        return ResponseEntity.ok(listarNomes);
+    }
 
 }
