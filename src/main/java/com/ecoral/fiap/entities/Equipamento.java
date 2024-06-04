@@ -20,21 +20,21 @@ public class Equipamento {
     @Column(name = "status_equipamento")
     private String status;
 
-    @ManyToOne
-    @JoinColumn(name = "id_parceiro")
-    private Parceiro parceiro;
-
-    @OneToMany(mappedBy = "equipamento")
-    private List<Manutencao> manutencoes;
-
-    @OneToMany(mappedBy = "equipamento")
-    private List<Alerta> alertas;
-
-    @OneToMany(mappedBy = "equipamento")
-    private List<Dados> leituras;
-
-    @OneToOne(mappedBy = "equipamento", cascade = CascadeType.ALL)
-    private Local local;
+//    @ManyToOne
+//    @JoinColumn(name = "id_parceiro")
+//    private Parceiro parceiro;
+//
+//    @OneToMany(mappedBy = "equipamento")
+//    private List<Manutencao> manutencoes;
+//
+//    @OneToMany(mappedBy = "equipamento")
+//    private List<Alerta> alertas;
+//
+//    @OneToMany(mappedBy = "equipamento")
+//    private List<Dados> leituras;
+//
+//    @OneToOne(mappedBy = "equipamento", cascade = CascadeType.ALL)
+//    private Local local;
 
     public Long getId() {
         return id;

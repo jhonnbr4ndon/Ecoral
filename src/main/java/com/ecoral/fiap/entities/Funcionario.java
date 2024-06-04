@@ -2,25 +2,20 @@ package com.ecoral.fiap.entities;
 
 import jakarta.persistence.*;
 
-import java.util.List;
-
 @Entity
-@Table(name = "usuario")
-public class Usuario {
+@Table(name = "funcionario")
+public class Funcionario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_usuario")
+    @Column(name = "id_funcionario")
     private Long id;
-    @Column(name = "nome_usuario")
+    @Column(name = "nome_funcionario")
     private String nome;
-    @Column(name = "email_usuario")
+    @Column(name = "email_funcionario")
     private String email;
-    @Column(name = "senha_usuario")
+    @Column(name = "senha_funcionario")
     private String senha;
-
-//    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
-//    private List<Relatorio> relatorios;
 
     public Long getId() {
         return id;

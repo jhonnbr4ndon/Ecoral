@@ -1,11 +1,10 @@
 package com.ecoral.fiap.entities.dto;
 
-
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
-public class UsuarioDTO {
+public class FuncionarioDTO {
 
     @NotBlank(message = "Nome não pode estar em branco")
     private String nome;

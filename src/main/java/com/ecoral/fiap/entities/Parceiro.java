@@ -23,11 +23,11 @@ public class Parceiro {
     @Column(name = "tipo_parceiro")
     private String tipo;
 
-    @ManyToMany(mappedBy = "parceiros")
-    private List<Relatorio> relatorios;
-
-    @OneToMany(mappedBy = "parceiro")
-    private List<Equipamento> equipamentos;
+//    @ManyToMany(mappedBy = "parceiros")
+//    private List<Relatorio> relatorios;
+//
+//    @OneToMany(mappedBy = "parceiro")
+//    private List<Equipamento> equipamentos;
 
     public Long getId() {
         return id;

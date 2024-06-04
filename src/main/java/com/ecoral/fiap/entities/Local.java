@@ -17,9 +17,9 @@ public class Local {
     @Column(name = "longitude_local")
     private Integer longitude;
 
-    @OneToOne
-    @JoinColumn(name = "id_equipamento")
-    private Equipamento equipamento;
+//    @OneToOne
+//    @JoinColumn(name = "id_equipamento")
+//    private Equipamento equipamento;
 
     public Long getId() {
         return id;

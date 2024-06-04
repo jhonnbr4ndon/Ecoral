@@ -78,5 +78,4 @@ public class UsuarioController {
         List<UsuarioDTO> listarNomes = usuarioService.listaOrganizadaUsuario(strategy).stream().map(UsuarioMapper::toDTO).toList();
         return ResponseEntity.ok(listarNomes);
     }
-
 }

@@ -19,9 +19,9 @@ public class Dados {
     @Column(name = "tipo_leitura") //Tipo Leitura = ph, turbidez, temperatura, etc...
     private String tipo;
 
-    @ManyToOne
-    @JoinColumn(name = "id_equipamento")
-    private Equipamento equipamento;
+//    @ManyToOne
+//    @JoinColumn(name = "id_equipamento")
+//    private Equipamento equipamento;
 
     public Long getId() {
         return id;

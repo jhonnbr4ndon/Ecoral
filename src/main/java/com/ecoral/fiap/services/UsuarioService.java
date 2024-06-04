@@ -66,7 +66,6 @@ public class UsuarioService {
             usuario.setNome(usuarioDTO.getNome());
             usuario.setEmail(usuarioDTO.getEmail());
             usuario.setSenha(usuarioDTO.getSenha());
-            usuario.setTipo(usuarioDTO.getTipo());
             usuario = usuarioRepository.save(usuario);
             return UsuarioMapper.toDTO(usuario);
         } else {
@@ -83,4 +82,5 @@ public class UsuarioService {
             throw new ResourceNotFoundException("Usuário não encontrado com o ID: " + id);
         }
     }
+
 }
