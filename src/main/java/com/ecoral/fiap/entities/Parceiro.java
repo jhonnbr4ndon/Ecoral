@@ -23,11 +23,20 @@ public class Parceiro {
     @Column(name = "tipo_parceiro")
     private String tipo;
 
-//    @ManyToMany(mappedBy = "parceiros")
-//    private List<Relatorio> relatorios;
-//
-//    @OneToMany(mappedBy = "parceiro")
-//    private List<Equipamento> equipamentos;
+    @OneToMany(mappedBy = "parceiro", cascade = CascadeType.ALL)
+    private List<Funcionario> funcionarios;
+
+    @OneToMany(mappedBy = "parceiro", cascade = CascadeType.ALL)
+    private List<Manutencao> manutencoes;
+
+    @OneToMany(mappedBy = "parceiro", cascade = CascadeType.ALL)
+    private List<Dados> dados;
+
+    @OneToMany(mappedBy = "parceiro", cascade = CascadeType.ALL)
+    private List<Equipamento> equipamentos;
+
+    @OneToMany(mappedBy = "parceiro", cascade = CascadeType.ALL)
+    private List<Alerta> alertas;
 
     public Long getId() {
         return id;

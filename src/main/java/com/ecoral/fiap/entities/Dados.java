@@ -3,6 +3,7 @@ package com.ecoral.fiap.entities;
 import jakarta.persistence.*;
 
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "leitura_equipamento")
@@ -19,9 +20,24 @@ public class Dados {
     @Column(name = "tipo_leitura") //Tipo Leitura = ph, turbidez, temperatura, etc...
     private String tipo;
 
-//    @ManyToOne
-//    @JoinColumn(name = "id_equipamento")
-//    private Equipamento equipamento;
+    @ManyToOne
+    @JoinColumn(name = "id_usuario")
+    private Usuario usuario;
+
+    @ManyToOne
+    @JoinColumn(name = "id_equipamento")
+    private Equipamento equipamento;
+
+    @ManyToOne
+    @JoinColumn(name = "id_parceiro")
+    private Parceiro parceiro;
+
+    @ManyToOne
+    @JoinColumn(name = "id_local")
+    private Local local;
+
+    @OneToMany(mappedBy = "dados", cascade = CascadeType.ALL)
+    private List<Alerta> alertas;
 
     public Long getId() {
         return id;

@@ -22,16 +22,17 @@ public class Relatorio {
     @Column(name = "img_relatorio")
     private String imagem;
 
-//    @ManyToOne
-//    @JoinColumn(name = "id_usuario")
-//    private Usuario usuario;
-//
-//    @ManyToMany
-//    @JoinTable(name = "relatorio_parceiro",
-//            joinColumns = @JoinColumn(name = "id_relatorio"),
-//            inverseJoinColumns = @JoinColumn(name = "id_parceiro"))
-//    private List<Parceiro> parceiros;
+    @ManyToOne
+    @JoinColumn(name = "id_equipamento")
+    private Equipamento equipamento;
 
+    @OneToOne
+    @JoinColumn(name = "id_manutencao")
+    private Manutencao manutencao;
+
+    @ManyToOne
+    @JoinColumn(name = "id_funcionario")
+    private Funcionario funcionario;
 
     public Long getId() {
         return id;

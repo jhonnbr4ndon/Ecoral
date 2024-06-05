@@ -19,9 +19,20 @@ public class Manutencao {
     @Column(name = "responsavel_manutencao")
     private String responsavel;
 
-//    @ManyToOne
-//    @JoinColumn(name = "id_equipamento")
-//    private Equipamento equipamento;
+    @ManyToOne
+    @JoinColumn(name = "id_equipamento")
+    private Equipamento equipamento;
+
+    @OneToOne(mappedBy = "manutencao")
+    private Relatorio relatorio;
+
+    @ManyToOne
+    @JoinColumn(name = "id_funcionario")
+    private Funcionario funcionario;
+
+    @ManyToOne
+    @JoinColumn(name = "id_parceiro")
+    private Parceiro parceiro;
 
     public Long getId() {
         return id;

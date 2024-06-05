@@ -2,6 +2,8 @@ package com.ecoral.fiap.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "local_equipamento")
 public class Local {
@@ -17,9 +19,9 @@ public class Local {
     @Column(name = "longitude_local")
     private Integer longitude;
 
-//    @OneToOne
-//    @JoinColumn(name = "id_equipamento")
-//    private Equipamento equipamento;
+    @OneToMany(mappedBy = "local", cascade = CascadeType.ALL)
+    private List<Dados> dados;
+
 
     public Long getId() {
         return id;

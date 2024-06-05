@@ -2,6 +2,8 @@ package com.ecoral.fiap.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "funcionario")
 public class Funcionario {
@@ -16,6 +18,16 @@ public class Funcionario {
     private String email;
     @Column(name = "senha_funcionario")
     private String senha;
+
+    @OneToMany(mappedBy = "funcionario", cascade = CascadeType.ALL)
+    private List<Relatorio> relatorios;
+
+    @OneToMany(mappedBy = "funcionario", cascade = CascadeType.ALL)
+    private List<Manutencao> manutencoes;
+
+    @ManyToOne
+    @JoinColumn(name = "id_parceiro")
+    private Parceiro parceiro;
 
     public Long getId() {
         return id;

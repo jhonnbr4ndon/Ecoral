@@ -19,8 +19,11 @@ public class Usuario {
     @Column(name = "senha_usuario")
     private String senha;
 
-//    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
-//    private List<Relatorio> relatorios;
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    private List<Dados> dados;
+
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    private List<Alerta> alertas;
 
     public Long getId() {
         return id;

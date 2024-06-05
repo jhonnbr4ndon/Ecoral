@@ -83,4 +83,22 @@ public class UsuarioService {
         }
     }
 
+    public UsuarioDTO autenticarUsuario(String email, String senha) {
+        Optional<Usuario> usuarioOptional = usuarioRepository.findByEmail(email);
+
+        if (usuarioOptional.isPresent()) {
+            Usuario usuario = usuarioOptional.get();
+            if (senha.equals(usuario.getSenha())) {
+                UsuarioDTO usuarioDTO = new UsuarioDTO();
+                usuarioDTO.setId(usuario.getId());
+                usuarioDTO.setNome(usuario.getNome());
+                usuarioDTO.setEmail(usuario.getEmail());
+                usuarioDTO.setSenha(usuario.getSenha());
+                return usuarioDTO;
+            }
+        }
+
+        return null;
+    }
+
 }

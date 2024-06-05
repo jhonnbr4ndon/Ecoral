@@ -78,4 +78,23 @@ public class UsuarioController {
         List<UsuarioDTO> listarNomes = usuarioService.listaOrganizadaUsuario(strategy).stream().map(UsuarioMapper::toDTO).toList();
         return ResponseEntity.ok(listarNomes);
     }
+
+    //Endpoint para fazer Authenticação na parte do login do front-end.
+    @PostMapping("/login")
+    public ResponseEntity<?> loginUsuario(@Valid @RequestBody UsuarioDTO usuarioDTO) {
+        try {
+            UsuarioDTO usuarioAutenticado = usuarioService.autenticarUsuario(usuarioDTO.getEmail(), usuarioDTO.getSenha());
+            if (usuarioAutenticado != null) {
+                return ResponseEntity.ok(usuarioAutenticado);
+            } else {
+                return ResponseEntity
+                        .status(HttpStatus.UNAUTHORIZED)
+                        .body("Usuário ou senha incorretos");
+            }
+        } catch (Exception ex) {
+            return ResponseEntity
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Ocorreu um erro durante a autenticação do usuário: " + ex.getMessage());
+        }
+    }
 }

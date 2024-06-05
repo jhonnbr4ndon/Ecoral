@@ -7,6 +7,7 @@ import jakarta.validation.constraints.Size;
 
 public class UsuarioDTO {
 
+    private Long id;
     @NotBlank(message = "Nome não pode estar em branco")
     private String nome;
     @NotBlank(message = "Email não pode estar em branco")
@@ -15,6 +16,14 @@ public class UsuarioDTO {
     @NotBlank(message = "Senha não pode estar em branco")
     @Size(min = 8, max = 8, message = "A senha deve ter exatamente 8 caracteres")
     private String senha;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;

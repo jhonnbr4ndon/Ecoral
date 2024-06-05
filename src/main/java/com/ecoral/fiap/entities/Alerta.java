@@ -21,9 +21,17 @@ public class Alerta {
     @Column(name = "status_alerta")
     private String status;
 
-//    @ManyToOne
-//    @JoinColumn(name = "id_equipamento")
-//    private Equipamento equipamento;
+    @ManyToOne
+    @JoinColumn(name = "id_usuario")
+    private Usuario usuario;
+
+    @ManyToOne
+    @JoinColumn(name = "id_parceiro")
+    private Parceiro parceiro;
+
+    @ManyToOne
+    @JoinColumn(name = "id_leitura")
+    private Dados dados;
 
     public Long getId() {
         return id;
