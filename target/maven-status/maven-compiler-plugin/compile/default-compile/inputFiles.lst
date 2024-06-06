@@ -1,7 +1,9 @@
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/FiapApplication.java
+/Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/config/OpenApiConfig.java
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/controller/AlertaController.java
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/controller/DadosController.java
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/controller/EquipamentoController.java
+/Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/controller/FuncionarioController.java
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/controller/LocalController.java
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/controller/ManutencaoController.java
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/controller/ParceiroController.java
@@ -10,6 +12,7 @@
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/entities/Alerta.java
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/entities/Dados.java
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/entities/Equipamento.java
+/Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/entities/Funcionario.java
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/entities/Local.java
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/entities/Manutencao.java
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/entities/Parceiro.java
@@ -18,6 +21,7 @@
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/entities/dto/AlertaDTO.java
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/entities/dto/DadosDTO.java
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/entities/dto/EquipamentoDTO.java
+/Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/entities/dto/FuncionarioDTO.java
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/entities/dto/LocalDTO.java
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/entities/dto/ManutencaoDTO.java
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/entities/dto/ParceiroDTO.java
@@ -26,6 +30,7 @@
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/repositories/AlertaRepository.java
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/repositories/DadosRepository.java
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/repositories/EquipamentoRepository.java
+/Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/repositories/FuncionarioRepository.java
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/repositories/LocalRepository.java
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/repositories/ManutencaoRepository.java
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/repositories/ParceirosRepository.java
@@ -35,6 +40,7 @@
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/services/DadosService.java
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/services/EquipamentoService.java
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/services/Exceptions/ResourceNotFoundException.java
+/Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/services/FuncionarioService.java
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/services/LocalService.java
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/services/ManutencaoService.java
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/services/ParceiroService.java
@@ -43,6 +49,7 @@
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/services/mapper/AlertaMapper.java
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/services/mapper/DadosMapper.java
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/services/mapper/EquipamentoMapper.java
+/Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/services/mapper/FuncionarioMapper.java
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/services/mapper/LocalMapper.java
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/services/mapper/ManutencaoMapper.java
 /Users/jhonn/Documents/DIGITAL BUSINESS ENABLEMENT/Ecoral/src/main/java/com/ecoral/fiap/services/mapper/ParceiroMapper.java

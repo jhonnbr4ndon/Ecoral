@@ -10,7 +10,7 @@ public class Local {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_loca")
+    @Column(name = "id_local")
     private Long id;
     @Column(name = "nome_local")
     private String nome;

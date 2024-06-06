@@ -1,6 +1,8 @@
 com/ecoral/fiap/strategies/equipamento/DataAntiga3Strategy.class
 com/ecoral/fiap/controller/ManutencaoController.class
+com/ecoral/fiap/services/mapper/FuncionarioMapper.class
 com/ecoral/fiap/entities/dto/RelatorioDTO.class
+com/ecoral/fiap/entities/dto/FuncionarioDTO.class
 com/ecoral/fiap/repositories/RelatorioRepository.class
 com/ecoral/fiap/repositories/LocalRepository.class
 com/ecoral/fiap/strategies/usuario/NomeUsuarioStrategy.class
@@ -8,6 +10,7 @@ com/ecoral/fiap/entities/dto/AlertaDTO.class
 com/ecoral/fiap/services/Exceptions/ResourceNotFoundException.class
 com/ecoral/fiap/strategies/relatorio/DataRecenteStrategy.class
 com/ecoral/fiap/services/mapper/ParceiroMapper.class
+com/ecoral/fiap/services/FuncionarioService.class
 com/ecoral/fiap/strategies/equipamento/EquipamentoStrategy.class
 com/ecoral/fiap/repositories/AlertaRepository.class
 com/ecoral/fiap/repositories/UsuarioRepository.class
@@ -21,6 +24,8 @@ com/ecoral/fiap/entities/Dados.class
 com/ecoral/fiap/strategies/alerta/DataRecente5Strategy.class
 com/ecoral/fiap/strategies/dados/DataAntiga4Strategy.class
 com/ecoral/fiap/services/AlertaService.class
+com/ecoral/fiap/config/OpenApiConfig.class
+com/ecoral/fiap/repositories/FuncionarioRepository.class
 com/ecoral/fiap/strategies/dados/DataRecente4Strategy.class
 com/ecoral/fiap/strategies/parceiro/ParceiroStrategy.class
 com/ecoral/fiap/controller/EquipamentoController.class
@@ -28,6 +33,7 @@ com/ecoral/fiap/controller/RelatorioController.class
 com/ecoral/fiap/strategies/alerta/DataAntiga5Strategy.class
 com/ecoral/fiap/entities/Usuario.class
 com/ecoral/fiap/services/mapper/AlertaMapper.class
+com/ecoral/fiap/entities/Funcionario.class
 com/ecoral/fiap/strategies/relatorio/RelatorioStrategy.class
 com/ecoral/fiap/entities/dto/ManutencaoDTO.class
 com/ecoral/fiap/entities/Local.class
@@ -46,6 +52,7 @@ com/ecoral/fiap/controller/DadosController.class
 com/ecoral/fiap/strategies/local/LocalStrategy.class
 com/ecoral/fiap/entities/Manutencao.class
 com/ecoral/fiap/controller/ParceiroController.class
+com/ecoral/fiap/controller/FuncionarioController.class
 com/ecoral/fiap/FiapApplication.class
 com/ecoral/fiap/strategies/relatorio/NomeResponsavelStrategy.class
 com/ecoral/fiap/strategies/manutencao/ManutencaoStrategy.class
